@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL SHORTENER</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            height: 100vh;
+            background: linear-gradient(rgb(3, 3, 124), white);
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        input[type="url"] {
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #9dff00;
+            color:white (0, 75, 128) (255, 255, 255);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color:white;
+        }
+        .short-url {
+            margin-top: 20px;
+            /* transform: translateY(500px); */
+            /* transform: translateX(20px); */
+        }
+
+        .formClass{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform: translateY(150px);
+           
+        }
+
+        .formClass h1{
+            color: white;
+            padding-bottom: 30px;
+        }
+
+        .shortnerNav{
+            display: flex;
+            justify-content: space-around;
+            gap: 300px;
+            align-items: center;
+            background: transparent;
+            color: white;
+        }
+
+        .shortnerNavMenu{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shortnerNav">
+        <div class="shortnerNavLogo">
+            <h1>
+                URL
+            </h1>
+        </div>
+
+        <div class="shortnerNavMenu">
+            <h3>About</h3>
+            <h3>contact</h3>
+            <h3>Login</h3>
+
+        </div>
+    </div>
+
+    <div class="'container">
+
+  
+   <form method='POST' class="formClass"> 
+         <h1>
+        URL SHORTENER
+       </h1> 
+    {% csrf_token %}
+        <input type='url' name = 'original_url' placeholder = "Enter Url to shorten">
+       <button type = "submit"> shorten</button>
+
+       {% if short_url%}
+       <div class="short-url">
+    
+       <p> shortened URL: <a href = "{{short_url}}"> {{short_url}}</a></p>
+       </div>
+         {% endif %}
+   </form>
+
+  
+
+    </div>
+</body>
+</html>
